@@ -1,0 +1,86 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1038\cocoasubrtf320
+{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;}
+{\colortbl;\red255\green255\blue255;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww18080\viewh15040\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\ql\qnatural\pardirnatural
+
+\f0\fs36 \cf0 Syphon for Quartz Composer, Public Beta 1.
+\fs24 \
+\
+
+\b About
+\b0 \
+\
+Syphon is a system for sending video between applications. You can use it to send high resolution and high frame rate video, 3D textures and synthesized content between Quartz Composer and other applications.\
+\
+Syphon for Quart Composer is packaged as a single plugin that contains 3 new patches:\
+\
+
+\b Syphon Server List
+\b0  - Outputs a structure of available Syphon Servers suitable for feeding to the Syphon Client patch. \
+\
+
+\b Syphon Client
+\b0  - Brings video from other applications into Quartz Composer.\
+\
+
+\b Syphon Server
+\b0  - Publishes images (or the content of the 3D scene as rendered) from Quartz Composer, so that external applications which support Syphon can use them.\
+
+\b \
+Licensing
+\b0 \
+\
+Syphon for Quartz Composer is published under a Simplified BSD license. See the included License.txt file.\
+\
+
+\b Requirements
+\b0 \
+\
+Mac OS X 10.6.4 or greater\
+Xcode tools 3.2.3 of greater for Quartz Composer Editor\
+ \
+
+\b Installation
+\b0 \
+\
+Install the Syphon.plugin bundle into /Library/Graphics/Quartz Composer Plug-Ins/ directory and restart Quartz Composer.app. Alternatively you can install Syphon.plugin into your user's ~/Library/Graphics/Quartz Composer Plug-Ins/ directory.\
+\
+Sample compositions are included.\
+\
+
+\b Instructions
+\b0 \
+\
+Using the 
+\b Syphon Server 
+\b0 patch - 
+\b Syphon Server
+\b0  for QC is a consumer patch, which means it executes on a specific layer. You can patch the output of an image or video provider or  filter to the Syphon Servers image port, or alternatively set the "Source" input menu of the Syphon Server to "OpenGL Scene", which will capture any content rendered into the Viewer. When using "OpenGL Scene", be sure to set the Syphon Servers layer number to be higher than any content you wish to capture. This is because higher layers render 'after' earlier layers, thus allowing Syphon Server to 'see' the content. You can leverage this layering to have specific content (perhaps titles, configuration UI, etc) "hidden" from Syphon. Syphon Server respects alpha (transparency) for any input image of rendered scene.\
+\
+Using the 
+\b Syphon Client
+\b0  patch - 
+\b Syphon Client
+\b0  for QC is a provider patch, which outputs an image from an existing Syphon Server. You can manually enter the Server Name (the human readable descriptive title of the frame source), and the Application Name, or alternatively use the 
+\b Syphon Server List 
+\b0 object, which outputs a structure which contains the available discovered Syphon Servers. \
+\
+Compositions can use any number of Syphon Clients and Servers, and users can load numerous compositions that leverage Syphon.\
+\
+
+\b Supported Applications
+\b0 \
+\
+Quartz Composer compositions can be loaded by some 3rd party applications, so Syphon support should be easy to add to them.\
+\
+Please see the support forums for an up to date list of working applications: http://forums.v002.info/forum.php?id=5\
+\
+
+\b Credits
+\b0 \
+\
+Syphon for Quartz Composer - Tom Butterworth (bangnoise) and Anton Marini (vade)\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\ql\qnatural\pardirnatural
+{\field{\*\fldinst{HYPERLINK "http://syphon.v002.info"}}{\fldrslt \cf0 http://syphon.v002.info }}}
