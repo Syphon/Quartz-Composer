@@ -91,7 +91,7 @@
 		8D5B49B7048680CD000E48DA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BD06EB50124393FC00E7CE88 /* SyphonQCFBO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SyphonQCFBO.h; sourceTree = "<group>"; };
 		BD06EB51124393FC00E7CE88 /* SyphonQCFBO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SyphonQCFBO.m; sourceTree = "<group>"; };
-		BD4801B11239A0E700DFB19E /* Syphon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Syphon.framework; path = ../Release/Syphon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD4801B11239A0E700DFB19E /* Syphon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Syphon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDD6BE5A11F74A9E007DF9F0 /* SyphonNameboundClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SyphonNameboundClient.h; path = ../Shared/SyphonNameboundClient.h; sourceTree = SOURCE_ROOT; };
 		BDD6BE5B11F74A9E007DF9F0 /* SyphonNameboundClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SyphonNameboundClient.m; path = ../Shared/SyphonNameboundClient.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
