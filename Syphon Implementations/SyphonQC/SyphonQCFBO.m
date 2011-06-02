@@ -37,7 +37,8 @@
 
 - (id) initWithContext:(CGLContextObj)cgl_ctx
 {
-	if (self = [super init])
+    self = [super init];
+	if (self)
 	{
 	
 		context = cgl_ctx;
@@ -116,7 +117,6 @@
 
 - (void) pushFBO:(CGLContextObj)cgl_ctx
 {
-//	CGLContextObj cgl_ctx = context;
 //	glGetIntegerv(GL_DRAW_BUFFER, &previousDrawBuffer);
 //	glGetIntegerv(GL_READ_BUFFER, &previousReadBuffer);
 	
@@ -133,7 +133,6 @@
 
 - (void) popFBO:(CGLContextObj)cgl_ctx
 {
-//	CGLContextObj cgl_ctx = context;
 	// pop 
 	glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, previousFBO);	
 	glBindFramebufferEXT(GL_READ_FRAMEBUFFER_EXT, previousReadFBO);
@@ -159,9 +158,7 @@
 }
 
 - (void) attachFBO:(CGLContextObj)cgl_ctx withTexture:(GLuint)tex width:(GLsizei)width height:(GLsizei)height
-{
-//	CGLContextObj cgl_ctx = context;
-	
+{	
 	// bind our FBO
 	glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, fboID);
 	glFramebufferTexture2DEXT(GL_FRAMEBUFFER_EXT, GL_COLOR_ATTACHMENT0_EXT, GL_TEXTURE_RECTANGLE_ARB, tex, 0);
@@ -187,7 +184,6 @@
 
 - (void ) detachFBO:(CGLContextObj) cgl_ctx
 {
-//	CGLContextObj cgl_ctx = context;
 	// Restore OpenGL states 
 	glMatrixMode(GL_MODELVIEW);
 	glPopMatrix();
