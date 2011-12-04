@@ -180,36 +180,39 @@
 		GLint dims[4];
 	
 		glPushAttrib(GL_TEXTURE_BIT);
-		
 		glGetIntegerv(GL_VIEWPORT, dims);
-//		NSLog(@"viewport: %d, %d, %d, %d", dims[0], dims[1], dims[2], dims[3]);
-		GLuint worldTexture;
-		glEnable(GL_TEXTURE_RECTANGLE_EXT);
-		glGenTextures(1, &worldTexture);
-		glBindTexture(GL_TEXTURE_RECTANGLE_EXT, worldTexture);
-		glTexImage2D(GL_TEXTURE_RECTANGLE_EXT, 0, GL_RGBA8, dims[2], dims[3], 0, GL_RGBA, GL_UNSIGNED_BYTE, NULL);
-		glCopyTexSubImage2D(GL_TEXTURE_RECTANGLE_EXT, 0, 0, 0, dims[0], dims[1], dims[2], dims[3]);
-				
-		if(worldTexture)
-		{
 		
-			if (syServer == nil)
-			{
-				syServer = [[SyphonServer alloc] initWithName:name
-													  context:[context CGLContextObj]
-													  options:nil];
-			}
-			[syServer publishFrameTexture:worldTexture
-							textureTarget:GL_TEXTURE_RECTANGLE_EXT
-							  imageRegion:(NSRect){{0.0, 0.0}, {dims[2], dims[3]}}
-						textureDimensions:(NSSize){dims[2], dims[3]}
-								  flipped:NO];
+		// Ok, the following is kind of a hack to keep things fast, leveraging the new SyphonServer newFrameImage.
+		// Rather than keeping our own texture, and then doing a FBO render to texture during publish,
+		// We just get the servers image, grab its texture and copy pixels INTO it.
+		// Then we call bindToDrawFrameOfSize, unbind immediately, to make sure our server publishes. 
+		
+		if (syServer == nil)
+		{
+			syServer = [[SyphonServer alloc] initWithName:name context:[context CGLContextObj] options:nil];
 			
-			glDeleteTextures(1, &worldTexture);
+			// need to ping the server once to setup a new image with the appropriate size
+			[syServer bindToDrawFrameOfSize:(NSSize){dims[2], dims[3]} ];    
+			[syServer unbindAndPublish];
+		}		
+		
+		// latest server frame/texture
+		SyphonImage* serverImage = [syServer newFrameImage];
+		
+		if(serverImage)
+		{		
+			glReadBuffer(GL_FRONT);
+			glBindTexture(GL_TEXTURE_RECTANGLE_EXT, [serverImage textureName]);
+			glCopyTexSubImage2D(GL_TEXTURE_RECTANGLE_EXT, 0, 0, 0, dims[0], dims[1], dims[2], dims[3]);    
+			
+			// Give Syphon a kick in the ass to publish the texture.
+			[syServer bindToDrawFrameOfSize:(NSSize){dims[2], dims[3]} ];    
+			[syServer unbindAndPublish];
+			
+			[serverImage release];
 			
 			glPopAttrib();
-		}	
-		
+		}
 		else
 		{
 			glPopAttrib();
