@@ -178,6 +178,9 @@
 	{
 		CGLContextObj cgl_ctx = [context CGLContextObj];
 		GLint dims[4];
+	
+		glPushAttrib(GL_TEXTURE_BIT);
+		
 		glGetIntegerv(GL_VIEWPORT, dims);
 //		NSLog(@"viewport: %d, %d, %d, %d", dims[0], dims[1], dims[2], dims[3]);
 		GLuint worldTexture;
@@ -203,11 +206,14 @@
 								  flipped:NO];
 			
 			glDeleteTextures(1, &worldTexture);
+			
+			glPopAttrib();
 		}	
 		
-
 		else
 		{
+			glPopAttrib();
+
 			// For now we stop the server, but we could output black instead and keep the server running.
 			[syServer stop];
 			[syServer release];
