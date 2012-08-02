@@ -7,18 +7,6 @@
 	objects = {
 
 /* Begin PBXAggregateTarget section */
-		233E2C640A83C768005A62DF /* Build & Copy */ = {
-			isa = PBXAggregateTarget;
-			buildConfigurationList = 233E2D890A83C7AC005A62DF /* Build configuration list for PBXAggregateTarget "Build & Copy" */;
-			buildPhases = (
-				233E2C690A83C783005A62DF /* ShellScript */,
-			);
-			dependencies = (
-				233E2C660A83C76D005A62DF /* PBXTargetDependency */,
-			);
-			name = "Build & Copy";
-			productName = "Build & Install";
-		};
 		BD48019F12399DF900DFB19E /* Build Custom Framework */ = {
 			isa = PBXAggregateTarget;
 			buildConfigurationList = BD4801A212399E2300DFB19E /* Build configuration list for PBXAggregateTarget "Build Custom Framework" */;
@@ -46,13 +34,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		233E2C650A83C76D005A62DF /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 089C1669FE841209C02AAC07 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 8D5B49AC048680CD000E48DA;
-			remoteInfo = SyphonQC;
-		};
 		BD4801AD1239A06D00DFB19E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 089C1669FE841209C02AAC07 /* Project object */;
@@ -246,7 +227,6 @@
 			targets = (
 				BD48019F12399DF900DFB19E /* Build Custom Framework */,
 				8D5B49AC048680CD000E48DA /* SyphonQC */,
-				233E2C640A83C768005A62DF /* Build & Copy */,
 			);
 		};
 /* End PBXProject section */
@@ -262,19 +242,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		233E2C690A83C783005A62DF /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# This shell script simply copies the built plug-in to \"~/Library/Graphics/Quartz Composer Plug-Ins\" and overrides any previous version at that location\n\nmkdir -p \"$USER_LIBRARY_DIR/Graphics/Quartz Composer Plug-Ins\"\nrm -rf \"$USER_LIBRARY_DIR/Graphics/Quartz Composer Plug-Ins/Syphon.plugin\"\nrm -rf \"$USER_LIBRARY_DIR/Graphics/Quartz Composer Plug-Ins/SyphonQC.plugin\"\ncp -rf \"$BUILT_PRODUCTS_DIR/Syphon.plugin\" \"$USER_LIBRARY_DIR/Graphics/Quartz Composer Plug-Ins/\"\n";
-		};
 		BD48019E12399DF900DFB19E /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -306,11 +273,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		233E2C660A83C76D005A62DF /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 8D5B49AC048680CD000E48DA /* SyphonQC */;
-			targetProxy = 233E2C650A83C76D005A62DF /* PBXContainerItemProxy */;
-		};
 		BD4801AE1239A06D00DFB19E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = BD48019F12399DF900DFB19E /* Build Custom Framework */;
@@ -333,6 +295,7 @@
 				GCC_PREFIX_HEADER = SyphonQC_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/Graphics/Quartz Composer Plug-Ins";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_NAME = Syphon;
 				WRAPPER_EXTENSION = plugin;
 				ZERO_LINK = YES;
@@ -351,6 +314,7 @@
 				GCC_PREFIX_HEADER = SyphonQC_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/Graphics/Quartz Composer Plug-Ins";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_NAME = Syphon;
 				WRAPPER_EXTENSION = plugin;
 			};
@@ -364,6 +328,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 				VALID_ARCHS = "i386 x86_64";
@@ -378,24 +343,9 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				SDKROOT = macosx;
 				VALID_ARCHS = "i386 x86_64";
-			};
-			name = Release;
-		};
-		233E2D8A0A83C7AC005A62DF /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				PRODUCT_NAME = "Build & Install";
-			};
-			name = Debug;
-		};
-		233E2D8B0A83C7AC005A62DF /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				PRODUCT_NAME = "Build & Install";
 			};
 			name = Release;
 		};
@@ -406,6 +356,7 @@
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_NAME = "Build Custom Framework";
 			};
 			name = Debug;
@@ -416,6 +367,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_NAME = "Build Custom Framework";
 				ZERO_LINK = NO;
 			};
@@ -438,15 +390,6 @@
 			buildConfigurations = (
 				1DEB913F08733D840010E9CD /* Debug */,
 				1DEB914008733D840010E9CD /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		233E2D890A83C7AC005A62DF /* Build configuration list for PBXAggregateTarget "Build & Copy" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				233E2D8A0A83C7AC005A62DF /* Debug */,
-				233E2D8B0A83C7AC005A62DF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
