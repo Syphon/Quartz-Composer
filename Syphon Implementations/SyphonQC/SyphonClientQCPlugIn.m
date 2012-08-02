@@ -156,9 +156,8 @@ static void _TextureReleaseCallback(CGLContextObj cgl_ctx, GLuint name, void* in
 		SyphonImage* latestImage = [client newFrameImageForContext:cgl_ctx];
 		NSSize texSize = [latestImage textureSize];
 		
-		if(!NSEqualSizes(NSZeroSize, texSize))
+		if(latestImage && !NSEqualSizes(NSZeroSize, texSize))
 		{
-
             // new texture
             glGenTextures(1, &texture);
             glBindTexture(GL_TEXTURE_RECTANGLE_ARB, texture);
@@ -170,65 +169,59 @@ static void _TextureReleaseCallback(CGLContextObj cgl_ctx, GLuint name, void* in
 			
 			glColor4f(1.0, 1.0, 1.0, 1.0);
 			
-			if (latestImage)
-			{
-				glActiveTexture(GL_TEXTURE0);
-				glEnable(GL_TEXTURE_RECTANGLE_EXT);
-				glBindTexture(GL_TEXTURE_RECTANGLE_EXT, [latestImage textureName]);
-				
-				// do not need blending if we use black border for alpha and replace env mode, saves a buffer wipe
-				// we can do this since our image draws over the complete surface of the FBO, no pixel goes untouched.
-				glDisable(GL_BLEND);
-				glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_REPLACE);	
-				
-				// VA for rendering
-				GLfloat tex_coords[] = 
-				{
-					texSize.width,texSize.height,
-					0.0,texSize.height,
-					0.0,0.0,
-					texSize.width,0.0
-				};
-				
-				GLfloat verts[] = 
-				{
-					texSize.width,texSize.height,
-					0.0,texSize.height,
-					0.0,0.0,
-					texSize.width,0.0
-				};
-				
-				glEnableClientState( GL_TEXTURE_COORD_ARRAY );
-				glTexCoordPointer(2, GL_FLOAT, 0, tex_coords );
-				glEnableClientState(GL_VERTEX_ARRAY);		
-				glVertexPointer(2, GL_FLOAT, 0, verts );
-				glDrawArrays( GL_TRIANGLE_FAN, 0, 4 );	// TODO: GL_QUADS or GL_TRIANGLE_FAN?
-				
-				glBindTexture(GL_TEXTURE_RECTANGLE_EXT, 0);
-			}
+            glActiveTexture(GL_TEXTURE0);
+            glEnable(GL_TEXTURE_RECTANGLE_EXT);
+            glBindTexture(GL_TEXTURE_RECTANGLE_EXT, [latestImage textureName]);
+            
+            // do not need blending if we use black border for alpha and replace env mode, saves a buffer wipe
+            // we can do this since our image draws over the complete surface of the FBO, no pixel goes untouched.
+            glDisable(GL_BLEND);
+            glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_REPLACE);	
+            
+            // VA for rendering
+            GLfloat tex_coords[] = 
+            {
+                texSize.width,texSize.height,
+                0.0,texSize.height,
+                0.0,0.0,
+                texSize.width,0.0
+            };
+            
+            GLfloat verts[] = 
+            {
+                texSize.width,texSize.height,
+                0.0,texSize.height,
+                0.0,0.0,
+                texSize.width,0.0
+            };
+            
+            glEnableClientState( GL_TEXTURE_COORD_ARRAY );
+            glTexCoordPointer(2, GL_FLOAT, 0, tex_coords );
+            glEnableClientState(GL_VERTEX_ARRAY);		
+            glVertexPointer(2, GL_FLOAT, 0, verts );
+            glDrawArrays( GL_TRIANGLE_FAN, 0, 4 );	// TODO: GL_QUADS or GL_TRIANGLE_FAN?
+            
+            glBindTexture(GL_TEXTURE_RECTANGLE_EXT, 0);
+			
 			[clientFBO detachFBO:cgl_ctx];
 			[clientFBO popFBO:cgl_ctx];
             
-            if(texture != 0)
-            {
-                self.outputImage = [context outputImageProviderFromTextureWithPixelFormat:kQCPlugInPixelFormat
-                                                                               pixelsWide:texSize.width
-                                                                               pixelsHigh:texSize.height
-                                                                                     name:texture
-                                                                                  flipped:NO
-                                                                          releaseCallback:_TextureReleaseCallback
-                                                                           releaseContext:NULL
-                                                                               colorSpace:[context colorSpace]
-                                                                         shouldColorMatch:YES];
-                
-                clearedOutput = NO;
-            }
+            self.outputImage = [context outputImageProviderFromTextureWithPixelFormat:kQCPlugInPixelFormat
+                                                                           pixelsWide:texSize.width
+                                                                           pixelsHigh:texSize.height
+                                                                                 name:texture
+                                                                              flipped:NO
+                                                                      releaseCallback:_TextureReleaseCallback
+                                                                       releaseContext:NULL
+                                                                           colorSpace:[context colorSpace]
+                                                                     shouldColorMatch:YES];
+            
+            clearedOutput = NO;
 		}
 
         glPopClientAttrib();
         glPopAttrib();
         
-
 		[latestImage release];
     }
 	else if (client == nil && clearedOutput == NO)
