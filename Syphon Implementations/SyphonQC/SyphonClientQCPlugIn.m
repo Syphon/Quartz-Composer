@@ -32,7 +32,7 @@
 #import <OpenGL/CGLMacro.h>
 
 #define	kQCPlugIn_Name				@"Syphon Client"
-#define	kQCPlugIn_Description		@"SyphonClientQCPlugIn description"
+#define	kQCPlugIn_Description		@"Share frames between applications using Syphon."
 
 #if __BIG_ENDIAN__
 #define kQCPlugInPixelFormat QCPlugInPixelFormatARGB8
