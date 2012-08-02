@@ -149,20 +149,21 @@ static void _TextureReleaseCallback(CGLContextObj cgl_ctx, GLuint name, void* in
 	if([client hasNewFrame])
 	{
 		GLuint texture;
-		
-		glPushAttrib(GL_ALL_ATTRIB_BITS);
-		glPushClientAttrib(GL_CLIENT_ALL_ATTRIB_BITS); // for vertex arrays
-		
+
+        glPushAttrib(GL_ALL_ATTRIB_BITS);
+        glPushClientAttrib(GL_CLIENT_ALL_ATTRIB_BITS); // for vertex arrays
+
 		SyphonImage* latestImage = [client newFrameImageForContext:cgl_ctx];
 		NSSize texSize = [latestImage textureSize];
 		
-		// new texture
-		glGenTextures(1, &texture);
-		glBindTexture(GL_TEXTURE_RECTANGLE_ARB, texture);
-		glTexImage2D(GL_TEXTURE_RECTANGLE_ARB, 0, GL_RGBA8, texSize.width, texSize.height, 0, GL_BGRA, GL_UNSIGNED_BYTE, NULL);
-		
 		if(!NSEqualSizes(NSZeroSize, texSize))
 		{
+
+            // new texture
+            glGenTextures(1, &texture);
+            glBindTexture(GL_TEXTURE_RECTANGLE_ARB, texture);
+            glTexImage2D(GL_TEXTURE_RECTANGLE_ARB, 0, GL_RGBA8, texSize.width, texSize.height, 0, GL_BGRA, GL_UNSIGNED_BYTE, NULL);
+
 			// this must be called before any other FBO stuff can happen for 10.6
 			[clientFBO pushFBO:cgl_ctx];
 			[clientFBO attachFBO:cgl_ctx withTexture:texture width:texSize.width height:texSize.height];
@@ -207,26 +208,29 @@ static void _TextureReleaseCallback(CGLContextObj cgl_ctx, GLuint name, void* in
 			}
 			[clientFBO detachFBO:cgl_ctx];
 			[clientFBO popFBO:cgl_ctx];
+            
+            if(texture != 0)
+            {
+                self.outputImage = [context outputImageProviderFromTextureWithPixelFormat:kQCPlugInPixelFormat
+                                                                               pixelsWide:texSize.width
+                                                                               pixelsHigh:texSize.height
+                                                                                     name:texture
+                                                                                  flipped:NO
+                                                                          releaseCallback:_TextureReleaseCallback
+                                                                           releaseContext:NULL
+                                                                               colorSpace:[context colorSpace]
+                                                                         shouldColorMatch:YES];
+                
+                clearedOutput = NO;
+            }
 		}
+
+        glPopClientAttrib();
+        glPopAttrib();
+        
+
 		[latestImage release];
-		glPopClientAttrib();
-		glPopAttrib();		
-		
-		if(texture != 0)
-		{
-			self.outputImage = [context outputImageProviderFromTextureWithPixelFormat:kQCPlugInPixelFormat
-																		   pixelsWide:texSize.width
-																		   pixelsHigh:texSize.height
-																				 name:texture
-																			  flipped:NO
-																	  releaseCallback:_TextureReleaseCallback
-																	   releaseContext:NULL
-																		   colorSpace:[context colorSpace]
-																	 shouldColorMatch:YES];
-		
-			clearedOutput = NO;
-		}
-	}
+    }
 	else if (client == nil && clearedOutput == NO)
 	{
 		self.outputImage = nil;
