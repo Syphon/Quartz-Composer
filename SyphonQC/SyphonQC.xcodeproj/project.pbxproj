@@ -59,17 +59,17 @@
 
 /* Begin PBXFileReference section */
 		1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
-		16AA5C440A7EEE7300888E31 /* SyphonQC_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = SyphonQC_Prefix.pch; sourceTree = "<group>"; };
 		16BA95400A7EB2EB001E4983 /* SyphonServerQCPlugIn.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = SyphonServerQCPlugIn.h; sourceTree = "<group>"; };
 		16BA95410A7EB2EB001E4983 /* SyphonServerQCPlugIn.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = SyphonServerQCPlugIn.m; sourceTree = "<group>"; };
 		16BA96300A7EB9AC001E4983 /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = /System/Library/Frameworks/Quartz.framework; sourceTree = "<absolute>"; };
 		1B8F521711CF4301009968B9 /* SyphonClientQCPlugIn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SyphonClientQCPlugIn.h; sourceTree = "<group>"; };
 		1B8F521811CF4301009968B9 /* SyphonClientQCPlugIn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SyphonClientQCPlugIn.m; sourceTree = "<group>"; };
+		1BF1608C17A4563200DA1B6B /* SyphonQC_Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SyphonQC_Prefix.pch; path = SyphonQC/SyphonQC_Prefix.pch; sourceTree = "<group>"; };
+		1BF1608D17A4564300DA1B6B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = SyphonQC/Info.plist; sourceTree = "<group>"; };
 		1BF2B3E111D3BCAA00D4ED6D /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		1BF2BC5911D81DD200D4ED6D /* SyphonServerListQCPlugIn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SyphonServerListQCPlugIn.h; sourceTree = "<group>"; };
 		1BF2BC5A11D81DD200D4ED6D /* SyphonServerListQCPlugIn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SyphonServerListQCPlugIn.m; sourceTree = "<group>"; };
 		8D5B49B6048680CD000E48DA /* Syphon.plugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Syphon.plugin; sourceTree = BUILT_PRODUCTS_DIR; };
-		8D5B49B7048680CD000E48DA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BD06EB50124393FC00E7CE88 /* SyphonQCFBO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SyphonQCFBO.h; sourceTree = "<group>"; };
 		BD06EB51124393FC00E7CE88 /* SyphonQCFBO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SyphonQCFBO.m; sourceTree = "<group>"; };
 		BD4801B11239A0E700DFB19E /* Syphon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Syphon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -118,7 +118,7 @@
 		089C167CFE841241C02AAC07 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				8D5B49B7048680CD000E48DA /* Info.plist */,
+				1BF1608D17A4564300DA1B6B /* Info.plist */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -144,7 +144,7 @@
 		32C88E010371C26100C91783 /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
-				16AA5C440A7EEE7300888E31 /* SyphonQC_Prefix.pch */,
+				1BF1608C17A4563200DA1B6B /* SyphonQC_Prefix.pch */,
 			);
 			name = "Other Sources";
 			sourceTree = "<group>";
@@ -156,6 +156,7 @@
 				16BA95410A7EB2EB001E4983 /* SyphonServerQCPlugIn.m */,
 			);
 			name = Server;
+			path = SyphonQC;
 			sourceTree = "<group>";
 		};
 		BDD6BE5811F74A00007DF9F0 /* Client */ = {
@@ -169,6 +170,7 @@
 				BDD6BE5B11F74A9E007DF9F0 /* SyphonNameboundClient.m */,
 			);
 			name = Client;
+			path = SyphonQC;
 			sourceTree = "<group>";
 		};
 		BDD6BE5911F74A1D007DF9F0 /* Server List */ = {
@@ -178,6 +180,7 @@
 				1BF2BC5A11D81DD200D4ED6D /* SyphonServerListQCPlugIn.m */,
 			);
 			name = "Server List";
+			path = SyphonQC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -253,7 +256,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "cd \"$PROJECT_DIR/../../Syphon Framework/\"\nxcodebuild -configuration \"$CONFIGURATION\" ARCHS=\"$ARCHS\" VALID_ARCHS=\"$VALID_ARCHS\" OBJROOT=\"$OBJROOT\" SYMROOT=\"$SYMROOT\" GCC_PREPROCESSOR_DEFINITIONS=SYPHON_UNIQUE_CLASS_NAME_PREFIX=SyphonQCPlugIn";
+			shellScript = "cd \"$PROJECT_DIR/../Syphon-Framework/\"\nxcodebuild -configuration \"$CONFIGURATION\" ARCHS=\"$ARCHS\" VALID_ARCHS=\"$VALID_ARCHS\" OBJROOT=\"$OBJROOT\" SYMROOT=\"$SYMROOT\" GCC_PREPROCESSOR_DEFINITIONS=SYPHON_UNIQUE_CLASS_NAME_PREFIX=SyphonQCPlugIn";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -292,8 +295,8 @@
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = SyphonQC_Prefix.pch;
-				INFOPLIST_FILE = Info.plist;
+				GCC_PREFIX_HEADER = SyphonQC/SyphonQC_Prefix.pch;
+				INFOPLIST_FILE = SyphonQC/Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/Graphics/Quartz Composer Plug-Ins";
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_NAME = Syphon;
@@ -311,8 +314,8 @@
 				GCC_ENABLE_OBJC_GC = supported;
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = SyphonQC_Prefix.pch;
-				INFOPLIST_FILE = Info.plist;
+				GCC_PREFIX_HEADER = SyphonQC/SyphonQC_Prefix.pch;
+				INFOPLIST_FILE = SyphonQC/Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/Graphics/Quartz Composer Plug-Ins";
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_NAME = Syphon;

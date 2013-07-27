@@ -1,0 +1,6 @@
+[submodule "Syphon-Framework"]
+	path = Syphon-Framework
+	url = https://github.com/Syphon/Syphon-Framework.git
+[submodule "Shared"]
+	path = Shared
+	url = https://github.com/Syphon/Shared.git
