@@ -3,13 +3,13 @@ Syphon for Quartz Composer
 
 Syphon is a system for sending video between applications. You can use it to send high resolution and high frame rate video, 3D textures and synthesized content between Quartz Composer and other applications.
 
-Syphon for Quart Composer is packaged as a single plugin that contains 3 new patches:
+Syphon for Quartz Composer is packaged as a single plugin that contains 3 new patches:
 
-Syphon Server List - Outputs a structure of available Syphon Servers suitable for feeding to the Syphon Client patch. 
+* Syphon Server List - Outputs a structure of available Syphon Servers suitable for feeding to the Syphon Client patch. 
 
-Syphon Client - Brings video from other applications into Quartz Composer.
+* Syphon Client - Brings video from other applications into Quartz Composer.
 
-Syphon Server - Publishes images (or the content of the 3D scene as rendered) from Quartz Composer, so that external applications which support Syphon can use them.
+* Syphon Server - Publishes images (or the content of the 3D scene as rendered) from Quartz Composer, so that external applications which support Syphon can use them.
 
 Licensing
 ===============
