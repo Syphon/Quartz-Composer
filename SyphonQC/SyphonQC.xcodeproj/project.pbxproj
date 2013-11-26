@@ -31,6 +31,8 @@
 		BD4801B21239A0E700DFB19E /* Syphon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD4801B11239A0E700DFB19E /* Syphon.framework */; };
 		BD4801BB1239A10700DFB19E /* Syphon.framework in Copy Syphon Framework */ = {isa = PBXBuildFile; fileRef = BD4801B11239A0E700DFB19E /* Syphon.framework */; };
 		BDD6BE5C11F74A9E007DF9F0 /* SyphonNameboundClient.m in Sources */ = {isa = PBXBuildFile; fileRef = BDD6BE5B11F74A9E007DF9F0 /* SyphonNameboundClient.m */; };
+		E28BFF151844FFD100A6A285 /* Syphon Server.qtz in CopyFiles */ = {isa = PBXBuildFile; fileRef = E28BFF121844FF9600A6A285 /* Syphon Server.qtz */; };
+		E28BFF1618450A7100A6A285 /* Syphon Client.qtz in CopyFiles */ = {isa = PBXBuildFile; fileRef = E28BFF111844FF9600A6A285 /* Syphon Client.qtz */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,17 @@
 			name = "Copy Syphon Framework";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E28BFF141844FFBF00A6A285 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Examples;
+			dstSubfolderSpec = 7;
+			files = (
+				E28BFF1618450A7100A6A285 /* Syphon Client.qtz in CopyFiles */,
+				E28BFF151844FFD100A6A285 /* Syphon Server.qtz in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -75,6 +88,8 @@
 		BD4801B11239A0E700DFB19E /* Syphon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Syphon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDD6BE5A11F74A9E007DF9F0 /* SyphonNameboundClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SyphonNameboundClient.h; path = ../Shared/SyphonNameboundClient.h; sourceTree = SOURCE_ROOT; };
 		BDD6BE5B11F74A9E007DF9F0 /* SyphonNameboundClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SyphonNameboundClient.m; path = ../Shared/SyphonNameboundClient.m; sourceTree = SOURCE_ROOT; };
+		E28BFF111844FF9600A6A285 /* Syphon Client.qtz */ = {isa = PBXFileReference; lastKnownFileType = "video.quartz-composer"; name = "Syphon Client.qtz"; path = "Examples/Syphon Client.qtz"; sourceTree = "<group>"; };
+		E28BFF121844FF9600A6A285 /* Syphon Server.qtz */ = {isa = PBXFileReference; lastKnownFileType = "video.quartz-composer"; name = "Syphon Server.qtz"; path = "Examples/Syphon Server.qtz"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +110,7 @@
 		089C166AFE841209C02AAC07 /* Quartz Composer Plug In */ = {
 			isa = PBXGroup;
 			children = (
+				E28BFF101844FF7F00A6A285 /* Examples */,
 				08FB77AFFE84173DC02AAC07 /* Classes */,
 				32C88E010371C26100C91783 /* Other Sources */,
 				089C167CFE841241C02AAC07 /* Resources */,
@@ -183,6 +199,15 @@
 			path = SyphonQC;
 			sourceTree = "<group>";
 		};
+		E28BFF101844FF7F00A6A285 /* Examples */ = {
+			isa = PBXGroup;
+			children = (
+				E28BFF111844FF9600A6A285 /* Syphon Client.qtz */,
+				E28BFF121844FF9600A6A285 /* Syphon Server.qtz */,
+			);
+			name = Examples;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -194,6 +219,7 @@
 				8D5B49B3048680CD000E48DA /* Frameworks */,
 				1BB5769D11CF1C8F008A305F /* Copy Syphon Framework */,
 				1BF2B36811D31F0700D4ED6D /* Resources */,
+				E28BFF141844FFBF00A6A285 /* CopyFiles */,
 			);
 			buildRules = (
 			);
