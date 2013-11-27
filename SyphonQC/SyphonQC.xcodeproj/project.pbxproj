@@ -282,7 +282,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "cd \"$PROJECT_DIR/../Syphon-Framework/\"\nxcodebuild -configuration \"$CONFIGURATION\" ARCHS=\"$ARCHS\" VALID_ARCHS=\"$VALID_ARCHS\" OBJROOT=\"$OBJROOT\" SYMROOT=\"$SYMROOT\" GCC_PREPROCESSOR_DEFINITIONS=SYPHON_UNIQUE_CLASS_NAME_PREFIX=SyphonQCPlugIn";
+			shellScript = "cd \"$PROJECT_DIR/../Syphon-Framework/\"\nxcodebuild -configuration \"$CONFIGURATION\" ARCHS=\"$ARCHS\" VALID_ARCHS=\"$VALID_ARCHS\" OBJROOT=\"$OBJROOT\" SYMROOT=\"$SYMROOT\" CODE_SIGN_IDENTITY=\"$CODE_SIGN_IDENTITY\" GCC_PREPROCESSOR_DEFINITIONS=SYPHON_UNIQUE_CLASS_NAME_PREFIX=SyphonQCPlugIn";
 		};
 /* End PBXShellScriptBuildPhase section */
 
