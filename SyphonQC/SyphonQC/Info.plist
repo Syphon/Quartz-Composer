@@ -9,7 +9,7 @@
 	<key>CFBundleGetInfoString</key>
 	<string>Syphon Quartz Composer Plug-In 3, Copyright Anton Marini &amp; Tom Butterworth, 2010-2013</string>
 	<key>CFBundleIdentifier</key>
-	<string>info.v002.syphon.${PRODUCT_NAME:identifier}</string>
+	<string>info.v002.syphon.syphon-qc</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
