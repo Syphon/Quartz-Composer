@@ -90,6 +90,9 @@
 		BDD6BE5B11F74A9E007DF9F0 /* SyphonNameboundClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SyphonNameboundClient.m; path = ../Shared/SyphonNameboundClient.m; sourceTree = SOURCE_ROOT; };
 		E28BFF111844FF9600A6A285 /* Syphon Client.qtz */ = {isa = PBXFileReference; lastKnownFileType = "video.quartz-composer"; name = "Syphon Client.qtz"; path = "Examples/Syphon Client.qtz"; sourceTree = "<group>"; };
 		E28BFF121844FF9600A6A285 /* Syphon Server.qtz */ = {isa = PBXFileReference; lastKnownFileType = "video.quartz-composer"; name = "Syphon Server.qtz"; path = "Examples/Syphon Server.qtz"; sourceTree = "<group>"; };
+		E28BFF1F1846AA1900A6A285 /* Distribution.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Distribution.xml; sourceTree = "<group>"; };
+		E28BFF211846AA1900A6A285 /* Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Background.png; sourceTree = "<group>"; };
+		E28BFF221846AA1900A6A285 /* Welcome.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Welcome.rtf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +117,7 @@
 				08FB77AFFE84173DC02AAC07 /* Classes */,
 				32C88E010371C26100C91783 /* Other Sources */,
 				089C167CFE841241C02AAC07 /* Resources */,
+				E28BFF1E1846AA1900A6A285 /* Installer */,
 				089C1671FE841209C02AAC07 /* Frameworks */,
 				19C28FB8FE9D52D311CA2CBB /* Products */,
 			);
@@ -208,6 +212,24 @@
 			name = Examples;
 			sourceTree = "<group>";
 		};
+		E28BFF1E1846AA1900A6A285 /* Installer */ = {
+			isa = PBXGroup;
+			children = (
+				E28BFF1F1846AA1900A6A285 /* Distribution.xml */,
+				E28BFF201846AA1900A6A285 /* Resources */,
+			);
+			path = Installer;
+			sourceTree = "<group>";
+		};
+		E28BFF201846AA1900A6A285 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E28BFF211846AA1900A6A285 /* Background.png */,
+				E28BFF221846AA1900A6A285 /* Welcome.rtf */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -220,6 +242,7 @@
 				1BB5769D11CF1C8F008A305F /* Copy Syphon Framework */,
 				1BF2B36811D31F0700D4ED6D /* Resources */,
 				E28BFF141844FFBF00A6A285 /* CopyFiles */,
+				E28BFF171846965F00A6A285 /* Create Installer (Archive Only) */,
 			);
 			buildRules = (
 			);
@@ -284,6 +307,20 @@
 			shellPath = /bin/sh;
 			shellScript = "cd \"$PROJECT_DIR/../Syphon-Framework/\"\nxcodebuild -configuration \"$CONFIGURATION\" ARCHS=\"$ARCHS\" VALID_ARCHS=\"$VALID_ARCHS\" OBJROOT=\"$OBJROOT\" SYMROOT=\"$SYMROOT\" CODE_SIGN_IDENTITY=\"$CODE_SIGN_IDENTITY\" GCC_PREPROCESSOR_DEFINITIONS=SYPHON_UNIQUE_CLASS_NAME_PREFIX=SyphonQCPlugIn";
 		};
+		E28BFF171846965F00A6A285 /* Create Installer (Archive Only) */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 8;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Create Installer (Archive Only)";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+			shellPath = /bin/sh;
+			shellScript = "mkdir -p ${DERIVED_FILE_DIR}\npkgbuild --quiet --root \"${INSTALL_ROOT}\" --version \"${SYPHONQC_PRODUCT_VERSION}\" --identifier info.v002.syphon.syphon-qc \"${DERIVED_FILE_DIR}/SyphonQC.pkg\"\nproductbuild --quiet --distribution \"${PROJECT_DIR}/Installer/Distribution.xml\" --package-path \"${DERIVED_FILE_DIR}\" --resources \"${PROJECT_DIR}/Installer/Resources\" \"${BUILT_PRODUCTS_DIR}/${SYPHONQC_INSTALLER_NAME}\"";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -322,9 +359,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = SyphonQC/SyphonQC_Prefix.pch;
 				INFOPLIST_FILE = SyphonQC/Info.plist;
-				INSTALL_PATH = "$(HOME)/Library/Graphics/Quartz Composer Plug-Ins";
+				INSTALL_PATH = "/Library/Graphics/Quartz Composer Plug-Ins";
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_NAME = Syphon;
+				SYPHONQC_INSTALLER_NAME = "Install Syphon for Quartz Composer.pkg";
+				SYPHONQC_PRODUCT_VERSION = 3;
 				WRAPPER_EXTENSION = plugin;
 			};
 			name = Debug;
@@ -339,9 +378,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = SyphonQC/SyphonQC_Prefix.pch;
 				INFOPLIST_FILE = SyphonQC/Info.plist;
-				INSTALL_PATH = "$(HOME)/Library/Graphics/Quartz Composer Plug-Ins";
+				INSTALL_PATH = "/Library/Graphics/Quartz Composer Plug-Ins";
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_NAME = Syphon;
+				SYPHONQC_INSTALLER_NAME = "Install Syphon for Quartz Composer.pkg";
+				SYPHONQC_PRODUCT_VERSION = 3;
 				WRAPPER_EXTENSION = plugin;
 			};
 			name = Release;
@@ -367,6 +408,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
+				SYPHONQC_PRODUCT_VERSION = "";
 				VALID_ARCHS = "i386 x86_64";
 			};
 			name = Debug;
@@ -391,6 +433,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				SDKROOT = macosx;
+				SYPHONQC_PRODUCT_VERSION = "";
 				VALID_ARCHS = "i386 x86_64";
 			};
 			name = Release;
