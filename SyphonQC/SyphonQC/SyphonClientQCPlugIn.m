@@ -53,7 +53,10 @@ static void _TextureReleaseCallback(CGLContextObj cgl_ctx, GLuint name, void* in
 
 + (NSDictionary*) attributes
 {
-	return [NSDictionary dictionaryWithObjectsAndKeys:kQCPlugIn_Name, QCPlugInAttributeNameKey, kQCPlugIn_Description, QCPlugInAttributeDescriptionKey, nil];
+    NSArray *examples = [NSArray arrayWithObjects:@"Examples/Syphon Client.qtz", nil];
+	return [NSDictionary dictionaryWithObjectsAndKeys:kQCPlugIn_Name, QCPlugInAttributeNameKey,
+            kQCPlugIn_Description, QCPlugInAttributeDescriptionKey,
+            examples, @"examples", nil]; // Don't use QCPlugInAttributeExamplesKey as it isn't present on 10.6
 }
 
 + (NSDictionary*) attributesForPropertyPortWithKey:(NSString*)key
@@ -68,6 +71,13 @@ static void _TextureReleaseCallback(CGLContextObj cgl_ctx, GLuint name, void* in
 		return [NSDictionary dictionaryWithObject:@"Image" forKey:QCPortAttributeNameKey]; 
 
 	return nil;
+}
+
++ (NSArray*) sortedPropertyPortKeys
+{
+	return [NSArray arrayWithObjects:@"inputServerApp",
+            @"inputServerName",
+            nil];
 }
 
 + (QCPlugInExecutionMode) executionMode
