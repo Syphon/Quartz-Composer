@@ -3,6 +3,7 @@
     <pkg-ref id="info.v002.syphon.syphon-qc"/>
     <background file="Background.png" alignment="bottomleft" scaling="proportional"/>
     <welcome file="Welcome.rtf"/>
+    <license file="License.rtf"/>
     <!-- Do not allow user Home directory installation. The MacOS Installer has
          a bug where it selects a choice but leaves the Continue button disabled
          until the choice has been clicked again. -->

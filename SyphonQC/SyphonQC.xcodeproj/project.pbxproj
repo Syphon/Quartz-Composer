@@ -93,6 +93,7 @@
 		E28BFF1F1846AA1900A6A285 /* Distribution.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Distribution.xml; sourceTree = "<group>"; };
 		E28BFF211846AA1900A6A285 /* Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Background.png; sourceTree = "<group>"; };
 		E28BFF221846AA1900A6A285 /* Welcome.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Welcome.rtf; sourceTree = "<group>"; };
+		E2E5024A193298320079407A /* License.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = License.rtf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,6 +225,7 @@
 		E28BFF201846AA1900A6A285 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E2E5024A193298320079407A /* License.rtf */,
 				E28BFF211846AA1900A6A285 /* Background.png */,
 				E28BFF221846AA1900A6A285 /* Welcome.rtf */,
 			);
