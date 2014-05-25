@@ -7,7 +7,7 @@
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleGetInfoString</key>
-	<string>Syphon Quartz Composer Plug-In ${SYPHONQC_PRODUCT_VERSION}, Copyright Anton Marini &amp; Tom Butterworth, 2010-2013</string>
+	<string>Syphon Quartz Composer Plug-In ${SYPHONQC_PRODUCT_VERSION}, Copyright Anton Marini &amp; Tom Butterworth, 2010-2014</string>
 	<key>CFBundleIdentifier</key>
 	<string>info.v002.syphon.syphon-qc</string>
 	<key>CFBundleInfoDictionaryVersion</key>
