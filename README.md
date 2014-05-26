@@ -25,14 +25,12 @@ Xcode tools 3.2.3 of greater for Quartz Composer Editor
 Installation
 ===============
 
-Install the Syphon.plugin bundle into /Library/Graphics/Quartz Composer Plug-Ins/ directory and restart Quartz Composer.app. Alternatively you can install Syphon.plugin into your user's ~/Library/Graphics/Quartz Composer Plug-Ins/ directory.
-
-Sample compositions are included.
+Use the [latest released installer](https://github.com/Syphon/Quartz-Composer/releases) to install the plugin.
 
 Instructions
 ===============
 
-Using the Syphon Server patch - Syphon Server for QC is a consumer patch, which means it executes on a specific layer. You can patch the output of an image or video provider or  filter to the Syphon Servers image port, or alternatively set the "Source" input menu of the Syphon Server to "OpenGL Scene", which will capture any content rendered into the Viewer. When using "OpenGL Scene", be sure to set the Syphon Servers layer number to be higher than any content you wish to capture. This is because higher layers render 'after' earlier layers, thus allowing Syphon Server to 'see' the content. You can leverage this layering to have specific content (perhaps titles, configuration UI, etc) "hidden" from Syphon. Syphon Server respects alpha (transparency) for any input image of rendered scene.
+Using the Syphon Server patch - Syphon Server for QC is a consumer patch, which means it executes on a specific layer. You can patch the output of an image or video provider or  filter to the Syphon Servers image port, or alternatively set the "Source" input menu of the Syphon Server to "OpenGL Scene", which will capture any content rendered into the Viewer. When using "OpenGL Scene", be sure to set the Syphon Servers layer number to be higher than any content you wish to capture. Syphon Server respects alpha (transparency) for any input image of rendered scene.
 
 Using the Syphon Client patch - Syphon Client for QC is a provider patch, which outputs an image from an existing Syphon Server. You can manually enter the Server Name (the human readable descriptive title of the frame source), and the Application Name, or alternatively use the Syphon Server List object, which outputs a structure which contains the available discovered Syphon Servers. 
 
@@ -44,6 +42,10 @@ Supported Applications
 Quartz Composer compositions can be loaded by some 3rd party applications, so Syphon support should be easy to add to them.
 
 Please see the support forums for an up to date list of working applications: http://forums.v002.info/forum.php?id=5
+
+Changes since Public Beta 2
+- When a Server is active, AppNap is prevented if the host app is hidden on MacOS Mavericks
+- Fixes for various graphical issues affecting Servers
 
 Changes since Public Beta 1
 - If neither Server Name nor Application Name is provided to the Syphon Client plugin, it will match any available server.
