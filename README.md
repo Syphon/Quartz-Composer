@@ -43,11 +43,17 @@ Quartz Composer compositions can be loaded by some 3rd party applications, so Sy
 
 Please see the support forums for an up to date list of working applications: http://forums.v002.info/forum.php?id=5
 
+Chances since version 3
+
+- Fix issue which caused unexpected output from the Syphon Server patch in "Scene" mode when render dimensions changed
+
 Changes since Public Beta 2
+
 - When a Server is active, AppNap is prevented if the host app is hidden on MacOS Mavericks
 - Fixes for various graphical issues affecting Servers
 
 Changes since Public Beta 1
+
 - If neither Server Name nor Application Name is provided to the Syphon Client plugin, it will match any available server.
 - Fixes and improvements to the underlying Syphon framework.
 

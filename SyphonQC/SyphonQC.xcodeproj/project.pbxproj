@@ -364,7 +364,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_NAME = Syphon;
 				SYPHONQC_INSTALLER_NAME = "Install Syphon for Quartz Composer.pkg";
-				SYPHONQC_PRODUCT_VERSION = 3;
+				SYPHONQC_PRODUCT_VERSION = 4;
 				WRAPPER_EXTENSION = plugin;
 			};
 			name = Debug;
@@ -382,7 +382,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_NAME = Syphon;
 				SYPHONQC_INSTALLER_NAME = "Install Syphon for Quartz Composer.pkg";
-				SYPHONQC_PRODUCT_VERSION = 3;
+				SYPHONQC_PRODUCT_VERSION = 4;
 				WRAPPER_EXTENSION = plugin;
 			};
 			name = Release;
