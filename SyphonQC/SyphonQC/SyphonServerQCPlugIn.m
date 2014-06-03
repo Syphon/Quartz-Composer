@@ -185,71 +185,29 @@
 	
 		glPushAttrib(GL_TEXTURE_BIT | GL_ENABLE_BIT);
 		glGetIntegerv(GL_VIEWPORT, dims);
-		        
-		// Ok, the following is kind of a hack to keep things fast, leveraging the new SyphonServer newFrameImage.
-		// Rather than keeping our own texture, and then doing a FBO render to texture during publish,
-		// We just get the servers image, grab its texture and copy pixels INTO it.
-		// Then we call bindToDrawFrameOfSize, unbind immediately, to make sure our server publishes. 
-		
-		if (syServer == nil)
-		{
-			syServer = [[SyphonServer alloc] initWithName:name context:[context CGLContextObj] options:nil];
-			
-			// need to ping the server once to setup a new image with the appropriate size
-			[syServer bindToDrawFrameOfSize:(NSSize){dims[2], dims[3]} ];
-			[syServer unbindAndPublish];
-		}		
-		
-		// latest server frame/texture
-		SyphonImage* serverImage = [syServer newFrameImage];
-		
-        // compare sizes
-        NSRect viewRect = NSMakeRect(dims[0], dims[1], dims[2], dims[3]);
-        NSRect serverImageRect = NSMakeRect(0, 0, [serverImage textureSize].width, [serverImage textureSize].height);
-        
-        if(!NSEqualRects(viewRect, serverImageRect))
+
+        GLuint worldTexture;
+        (GL_TEXTURE_RECTANGLE_EXT);
+        glGenTextures(1, &worldTexture);
+        glBindTexture(GL_TEXTURE_RECTANGLE_EXT, worldTexture);
+        glTexImage2D(GL_TEXTURE_RECTANGLE_EXT, 0, GL_RGBA8, dims[2], dims[3], 0, GL_RGBA, GL_UNSIGNED_BYTE, NULL);
+        glCopyTexSubImage2D(GL_TEXTURE_RECTANGLE_EXT, 0, 0, 0, dims[0], dims[1], dims[2], dims[3]);
+
+        if (syServer == nil)
         {
-            [serverImage release];
-            serverImage = nil;
-            // resize
-			[syServer bindToDrawFrameOfSize:(NSSize){dims[2], dims[3]} ];
-			[syServer unbindAndPublish];
-
-            // new resized image
-            serverImage = [syServer newFrameImage];
+            syServer = [[SyphonServer alloc] initWithName:name
+                                                  context:[context CGLContextObj]
+                                                  options:nil];
         }
-        
-		if(serverImage)
-		{
-            GLint previousReadBuffer;
-            
-            glGetIntegerv(GL_READ_BUFFER, &previousReadBuffer);
-            
-			glReadBuffer(GL_FRONT);
-			glBindTexture(GL_TEXTURE_RECTANGLE_EXT, [serverImage textureName]);
-			glCopyTexSubImage2D(GL_TEXTURE_RECTANGLE_EXT, 0, 0, 0, dims[0], dims[1], dims[2], dims[3]);
-			
-            
-			// Give Syphon a kick in the ass to publish the texture.
-			[syServer bindToDrawFrameOfSize:(NSSize){dims[2], dims[3]} ];    
-			[syServer unbindAndPublish];
-			
-			[serverImage release];
-			
-            glReadBuffer(previousReadBuffer);
-            
-		}
-        // Keep the last frame valid, and server alive.
-//		else
-//		{
-// For now we stop the server, but we could output black instead and keep the server running.
-//			[syServer stop];
-//			[syServer release];
-//			syServer = nil;			
-//		}
-        
-        glPopAttrib();
+        [syServer publishFrameTexture:worldTexture
+                        textureTarget:GL_TEXTURE_RECTANGLE_EXT
+                          imageRegion:(NSRect){{0.0, 0.0}, {dims[2], dims[3]}}
+                    textureDimensions:(NSSize){dims[2], dims[3]}
+                              flipped:NO];
 
+        glDeleteTextures(1, &worldTexture);
+
+        glPopAttrib();
 	}
 	
 	return YES;
