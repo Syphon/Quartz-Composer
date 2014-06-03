@@ -43,7 +43,7 @@ Quartz Composer compositions can be loaded by some 3rd party applications, so Sy
 
 Please see the support forums for an up to date list of working applications: http://forums.v002.info/forum.php?id=5
 
-Chances since version 3
+Changes since version 3
 
 - Fix issue which caused unexpected output from the Syphon Server patch in "Scene" mode when render dimensions changed
 
