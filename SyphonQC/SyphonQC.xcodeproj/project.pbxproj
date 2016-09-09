@@ -29,7 +29,7 @@
 		8D5B49B4048680CD000E48DA /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */; };
 		BD06EB52124393FC00E7CE88 /* SyphonQCFBO.m in Sources */ = {isa = PBXBuildFile; fileRef = BD06EB51124393FC00E7CE88 /* SyphonQCFBO.m */; };
 		BD4801B21239A0E700DFB19E /* Syphon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD4801B11239A0E700DFB19E /* Syphon.framework */; };
-		BD4801BB1239A10700DFB19E /* Syphon.framework in Copy Syphon Framework */ = {isa = PBXBuildFile; fileRef = BD4801B11239A0E700DFB19E /* Syphon.framework */; };
+		BD4801BB1239A10700DFB19E /* Syphon.framework in Copy Syphon Framework */ = {isa = PBXBuildFile; fileRef = BD4801B11239A0E700DFB19E /* Syphon.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		BDD6BE5C11F74A9E007DF9F0 /* SyphonNameboundClient.m in Sources */ = {isa = PBXBuildFile; fileRef = BDD6BE5B11F74A9E007DF9F0 /* SyphonNameboundClient.m */; };
 		E28BFF151844FFD100A6A285 /* Syphon Server.qtz in CopyFiles */ = {isa = PBXBuildFile; fileRef = E28BFF121844FF9600A6A285 /* Syphon Server.qtz */; };
 		E28BFF1618450A7100A6A285 /* Syphon Client.qtz in CopyFiles */ = {isa = PBXBuildFile; fileRef = E28BFF111844FF9600A6A285 /* Syphon Client.qtz */; };
@@ -263,7 +263,7 @@
 		089C1669FE841209C02AAC07 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0730;
 			};
 			buildConfigurationList = 1DEB913E08733D840010E9CD /* Build configuration list for PBXProject "SyphonQC" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -362,6 +362,7 @@
 				INFOPLIST_FILE = SyphonQC/Info.plist;
 				INSTALL_PATH = "/Library/Graphics/Quartz Composer Plug-Ins";
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				PRODUCT_BUNDLE_IDENTIFIER = "info.v002.syphon.syphon-qc";
 				PRODUCT_NAME = Syphon;
 				SYPHONQC_INSTALLER_NAME = "Install Syphon for Quartz Composer.pkg";
 				SYPHONQC_PRODUCT_VERSION = 4;
@@ -380,6 +381,7 @@
 				INFOPLIST_FILE = SyphonQC/Info.plist;
 				INSTALL_PATH = "/Library/Graphics/Quartz Composer Plug-Ins";
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				PRODUCT_BUNDLE_IDENTIFIER = "info.v002.syphon.syphon-qc";
 				PRODUCT_NAME = Syphon;
 				SYPHONQC_INSTALLER_NAME = "Install Syphon for Quartz Composer.pkg";
 				SYPHONQC_PRODUCT_VERSION = 4;
@@ -396,8 +398,12 @@
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -422,8 +428,11 @@
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
