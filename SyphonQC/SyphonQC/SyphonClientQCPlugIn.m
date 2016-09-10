@@ -99,13 +99,6 @@ static void _TextureReleaseCallback(CGLContextObj cgl_ctx, GLuint name, void* in
 	return self;
 }
 
-/*
-- (void) finalize
-{	
-	[super finalize];
-}
-*/
-
 - (void) dealloc
 {
 	[syClient release];
@@ -119,9 +112,10 @@ static void _TextureReleaseCallback(CGLContextObj cgl_ctx, GLuint name, void* in
 
 - (BOOL) startExecution:(id<QCPlugInContext>)context
 {
-	syClient = [[SyphonNameboundClient alloc] init];
+    CGLContextObj cgl_ctx = [context CGLContextObj];
+
+	syClient = [[SyphonNameboundClient alloc] initWithContext:cgl_ctx];
 	// make FBO for persistant, unique image output
-	CGLContextObj cgl_ctx = [context CGLContextObj];
 	
 	clientFBO = [[SyphonQCFBO alloc] initWithContext:cgl_ctx];
 	if(clientFBO == nil)
@@ -163,7 +157,7 @@ static void _TextureReleaseCallback(CGLContextObj cgl_ctx, GLuint name, void* in
         glPushAttrib(GL_ALL_ATTRIB_BITS);
         glPushClientAttrib(GL_CLIENT_ALL_ATTRIB_BITS); // for vertex arrays
 
-		SyphonImage* latestImage = [client newFrameImageForContext:cgl_ctx];
+		SyphonImage* latestImage = [client newFrameImage];
 		NSSize texSize = [latestImage textureSize];
 		
 		if(latestImage && !NSEqualSizes(NSZeroSize, texSize))
