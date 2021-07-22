@@ -6,20 +6,6 @@
 	objectVersion = 46;
 	objects = {
 
-/* Begin PBXAggregateTarget section */
-		BD48019F12399DF900DFB19E /* Build Custom Framework */ = {
-			isa = PBXAggregateTarget;
-			buildConfigurationList = BD4801A212399E2300DFB19E /* Build configuration list for PBXAggregateTarget "Build Custom Framework" */;
-			buildPhases = (
-				BD48019E12399DF900DFB19E /* ShellScript */,
-			);
-			dependencies = (
-			);
-			name = "Build Custom Framework";
-			productName = "Build Custom Framework";
-		};
-/* End PBXAggregateTarget section */
-
 /* Begin PBXBuildFile section */
 		16BA95420A7EB2EB001E4983 /* SyphonServerQCPlugIn.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BA95410A7EB2EB001E4983 /* SyphonServerQCPlugIn.m */; };
 		16BA96310A7EB9AC001E4983 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16BA96300A7EB9AC001E4983 /* Quartz.framework */; };
@@ -27,23 +13,13 @@
 		1BF2B3E811D3BCDE00D4ED6D /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BF2B3E111D3BCAA00D4ED6D /* OpenGL.framework */; };
 		1BF2BC5B11D81DD200D4ED6D /* SyphonServerListQCPlugIn.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BF2BC5A11D81DD200D4ED6D /* SyphonServerListQCPlugIn.m */; };
 		8D5B49B4048680CD000E48DA /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */; };
+		9804C3DF26A989B400F14E26 /* Syphon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9804C3DE26A989B400F14E26 /* Syphon.framework */; };
+		9804C3E026A989B400F14E26 /* Syphon.framework in Copy Syphon Framework */ = {isa = PBXBuildFile; fileRef = 9804C3DE26A989B400F14E26 /* Syphon.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BD06EB52124393FC00E7CE88 /* SyphonQCFBO.m in Sources */ = {isa = PBXBuildFile; fileRef = BD06EB51124393FC00E7CE88 /* SyphonQCFBO.m */; };
-		BD4801B21239A0E700DFB19E /* Syphon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD4801B11239A0E700DFB19E /* Syphon.framework */; };
-		BD4801BB1239A10700DFB19E /* Syphon.framework in Copy Syphon Framework */ = {isa = PBXBuildFile; fileRef = BD4801B11239A0E700DFB19E /* Syphon.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		BDD6BE5C11F74A9E007DF9F0 /* SyphonNameboundClient.m in Sources */ = {isa = PBXBuildFile; fileRef = BDD6BE5B11F74A9E007DF9F0 /* SyphonNameboundClient.m */; };
 		E28BFF151844FFD100A6A285 /* Syphon Server.qtz in CopyFiles */ = {isa = PBXBuildFile; fileRef = E28BFF121844FF9600A6A285 /* Syphon Server.qtz */; };
 		E28BFF1618450A7100A6A285 /* Syphon Client.qtz in CopyFiles */ = {isa = PBXBuildFile; fileRef = E28BFF111844FF9600A6A285 /* Syphon Client.qtz */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		BD4801AD1239A06D00DFB19E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 089C1669FE841209C02AAC07 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = BD48019F12399DF900DFB19E;
-			remoteInfo = "Build Custom Framework";
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		1BB5769D11CF1C8F008A305F /* Copy Syphon Framework */ = {
@@ -52,7 +28,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				BD4801BB1239A10700DFB19E /* Syphon.framework in Copy Syphon Framework */,
+				9804C3E026A989B400F14E26 /* Syphon.framework in Copy Syphon Framework */,
 			);
 			name = "Copy Syphon Framework";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -83,9 +59,9 @@
 		1BF2BC5911D81DD200D4ED6D /* SyphonServerListQCPlugIn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SyphonServerListQCPlugIn.h; sourceTree = "<group>"; };
 		1BF2BC5A11D81DD200D4ED6D /* SyphonServerListQCPlugIn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SyphonServerListQCPlugIn.m; sourceTree = "<group>"; };
 		8D5B49B6048680CD000E48DA /* Syphon.plugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Syphon.plugin; sourceTree = BUILT_PRODUCTS_DIR; };
+		9804C3DE26A989B400F14E26 /* Syphon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Syphon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD06EB50124393FC00E7CE88 /* SyphonQCFBO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SyphonQCFBO.h; sourceTree = "<group>"; };
 		BD06EB51124393FC00E7CE88 /* SyphonQCFBO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SyphonQCFBO.m; sourceTree = "<group>"; };
-		BD4801B11239A0E700DFB19E /* Syphon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Syphon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDD6BE5A11F74A9E007DF9F0 /* SyphonNameboundClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SyphonNameboundClient.h; path = ../Shared/SyphonNameboundClient.h; sourceTree = SOURCE_ROOT; };
 		BDD6BE5B11F74A9E007DF9F0 /* SyphonNameboundClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SyphonNameboundClient.m; path = ../Shared/SyphonNameboundClient.m; sourceTree = SOURCE_ROOT; };
 		E28BFF111844FF9600A6A285 /* Syphon Client.qtz */ = {isa = PBXFileReference; lastKnownFileType = "video.quartz-composer"; name = "Syphon Client.qtz"; path = "Examples/Syphon Client.qtz"; sourceTree = "<group>"; };
@@ -102,9 +78,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				1BF2B3E811D3BCDE00D4ED6D /* OpenGL.framework in Frameworks */,
+				9804C3DF26A989B400F14E26 /* Syphon.framework in Frameworks */,
 				8D5B49B4048680CD000E48DA /* Cocoa.framework in Frameworks */,
 				16BA96310A7EB9AC001E4983 /* Quartz.framework in Frameworks */,
-				BD4801B21239A0E700DFB19E /* Syphon.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -128,7 +104,7 @@
 		089C1671FE841209C02AAC07 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				BD4801B11239A0E700DFB19E /* Syphon.framework */,
+				9804C3DE26A989B400F14E26 /* Syphon.framework */,
 				16BA96300A7EB9AC001E4983 /* Quartz.framework */,
 				1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */,
 				1BF2B3E111D3BCAA00D4ED6D /* OpenGL.framework */,
@@ -249,7 +225,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				BD4801AE1239A06D00DFB19E /* PBXTargetDependency */,
 			);
 			name = SyphonQC;
 			productInstallPath = "$(HOME)/Library/Bundles";
@@ -279,7 +254,6 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				BD48019F12399DF900DFB19E /* Build Custom Framework */,
 				8D5B49AC048680CD000E48DA /* SyphonQC */,
 			);
 		};
@@ -296,19 +270,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		BD48019E12399DF900DFB19E /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "cd \"$PROJECT_DIR/../Syphon-Framework/\"\nxcodebuild -configuration \"$CONFIGURATION\" ARCHS=\"$ARCHS\" VALID_ARCHS=\"$VALID_ARCHS\" OBJROOT=\"$OBJROOT\" SYMROOT=\"$SYMROOT\" CODE_SIGN_IDENTITY=\"$CODE_SIGN_IDENTITY\" GCC_PREPROCESSOR_DEFINITIONS=SYPHON_UNIQUE_CLASS_NAME_PREFIX=SyphonQCPlugIn";
-		};
 		E28BFF171846965F00A6A285 /* Create Installer (Archive Only) */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 8;
@@ -340,14 +301,6 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		BD4801AE1239A06D00DFB19E /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = BD48019F12399DF900DFB19E /* Build Custom Framework */;
-			targetProxy = BD4801AD1239A06D00DFB19E /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin XCBuildConfiguration section */
 		1DEB913B08733D840010E9CD /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -365,7 +318,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "info.v002.syphon.syphon-qc";
 				PRODUCT_NAME = Syphon;
 				SYPHONQC_INSTALLER_NAME = "Install Syphon for Quartz Composer.pkg";
-				SYPHONQC_PRODUCT_VERSION = 4;
+				SYPHONQC_PRODUCT_VERSION = 4.1;
 				WRAPPER_EXTENSION = plugin;
 			};
 			name = Debug;
@@ -384,7 +337,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "info.v002.syphon.syphon-qc";
 				PRODUCT_NAME = Syphon;
 				SYPHONQC_INSTALLER_NAME = "Install Syphon for Quartz Composer.pkg";
-				SYPHONQC_PRODUCT_VERSION = 4;
+				SYPHONQC_PRODUCT_VERSION = 4.1;
 				WRAPPER_EXTENSION = plugin;
 			};
 			name = Release;
@@ -392,7 +345,7 @@
 		1DEB913F08733D840010E9CD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -414,24 +367,22 @@
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 				SYPHONQC_PRODUCT_VERSION = "";
-				VALID_ARCHS = "i386 x86_64";
 			};
 			name = Debug;
 		};
 		1DEB914008733D840010E9CD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -452,40 +403,14 @@
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				SDKROOT = macosx;
 				SYPHONQC_PRODUCT_VERSION = "";
-				VALID_ARCHS = "i386 x86_64";
-			};
-			name = Release;
-		};
-		BD4801A012399DF900DFB19E /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				COPY_PHASE_STRIP = NO;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
-				PRODUCT_NAME = "Build Custom Framework";
-			};
-			name = Debug;
-		};
-		BD4801A112399DF900DFB19E /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				COPY_PHASE_STRIP = YES;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
-				PRODUCT_NAME = "Build Custom Framework";
-				ZERO_LINK = NO;
 			};
 			name = Release;
 		};
@@ -506,15 +431,6 @@
 			buildConfigurations = (
 				1DEB913F08733D840010E9CD /* Debug */,
 				1DEB914008733D840010E9CD /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		BD4801A212399E2300DFB19E /* Build configuration list for PBXAggregateTarget "Build Custom Framework" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				BD4801A012399DF900DFB19E /* Debug */,
-				BD4801A112399DF900DFB19E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
